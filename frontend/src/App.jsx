@@ -1,12 +1,17 @@
 import React from 'react';
 import CountryList from '../components/countryList';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CountryDetails from '../components/CountryDetails';
+
 
 const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-center text-primary-dark p-6">Explore Countries 🌍</h1>
-      <CountryList/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<CountryList />} />
+        <Route path="/country/:code" element={<CountryDetails />} />
+      </Routes>
+    </Router>
   );
 };
 

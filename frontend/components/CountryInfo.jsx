@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CountryInfo = ({ country }) => {
   return (
+    <Link to={`/country/${country.cca3}`}>
     <div className="bg-cream rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 ease-in-out border border-primary-dark">
       <img
         src={country.flags.png}
@@ -21,6 +23,9 @@ const CountryInfo = ({ country }) => {
         </p>
       </div>
     </div>
+    </Link>
+
+
   );
 };
 
