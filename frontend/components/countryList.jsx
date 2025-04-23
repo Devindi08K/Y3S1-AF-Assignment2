@@ -10,11 +10,12 @@ import {
 } from '../services/countryService';
 
 const CountryList = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, favorites } = useContext(AuthContext);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
+  const [showFavorites, setShowFavorites] = useState(false);
 
   const fetchCountries = async () => {
     setLoading(true);
@@ -46,24 +47,42 @@ const CountryList = () => {
     <div className="bg-beige min-h-screen px-6">
       <div className="flex justify-between items-center py-4">
         <h1 className="text-2xl font-bold text-primary-dark">Welcome, {user}</h1>
-        <button 
-          onClick={logout} 
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
-        >
-          Logout
-        </button>
+        <div className="flex gap-4">
+          <button 
+            onClick={() => setShowFavorites(!showFavorites)}
+            className={`px-4 py-2 rounded-lg transition ${
+              showFavorites 
+                ? 'bg-white text-primary border border-primary' 
+                : 'bg-primary text-white'
+            }`}
+          >
+            {showFavorites ? 'Show All Countries' : 'Show Favorites'}
+          </button>
+          <button 
+            onClick={logout} 
+            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+          >
+            Logout
+          </button>
+        </div>
       </div>
       
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <RegionFilter selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
+      {!showFavorites && (
+        <>
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <RegionFilter selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
+        </>
+      )}
 
       {loading ? (
         <p className="text-center text-primary-dark">Loading countries...</p>
       ) : countries.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-10">
-          {countries.map((country) => (
-            <CountryInfo key={country.cca3} country={country} />
-          ))}
+          {countries
+            .filter(country => !showFavorites || favorites.includes(country.cca3))
+            .map((country) => (
+              <CountryInfo key={country.cca3} country={country} />
+            ))}
         </div>
       ) : (
         <p className="text-center text-red-500">No countries found.</p>
