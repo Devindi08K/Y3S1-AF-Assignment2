@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import CountryInfo from './CountryInfo';
 import SearchBar from './SearchBar';
 import RegionFilter from './RegionFilter';
+import { AuthContext } from '../context/AuthContext';
 import {
   getAllCountries,
   getCountryByName,
@@ -9,6 +10,7 @@ import {
 } from '../services/countryService';
 
 const CountryList = () => {
+  const { user, logout } = useContext(AuthContext);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,6 +44,16 @@ const CountryList = () => {
 
   return (
     <div className="bg-beige min-h-screen px-6">
+      <div className="flex justify-between items-center py-4">
+        <h1 className="text-2xl font-bold text-primary-dark">Welcome, {user}</h1>
+        <button 
+          onClick={logout} 
+          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+        >
+          Logout
+        </button>
+      </div>
+      
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <RegionFilter selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion} />
 

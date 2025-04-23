@@ -71,6 +71,18 @@ const CountryDetails = () => {
                     <span className="font-semibold w-32">Languages:</span>
                     <span>{country.languages ? Object.values(country.languages).join(', ') : 'N/A'}</span>
                   </p>
+                  <p className="flex items-baseline">
+                    <span className="font-semibold w-32">Top Level Domain:</span>
+                    <span>{country.tld?.join(', ') || 'N/A'}</span>
+                  </p>
+                  <p className="flex items-baseline">
+                    <span className="font-semibold w-32">Currencies:</span>
+                    <span>{country.currencies ? Object.values(country.currencies).map(c => c.name).join(', ') : 'N/A'}</span>
+                  </p>
+                  <p className="flex items-baseline">
+                    <span className="font-semibold w-32">Border Countries:</span>
+                    <span>{country.borders?.join(', ') || 'None'}</span>
+                  </p>
                 </div>
               </div>
             </div>
