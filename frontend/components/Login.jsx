@@ -24,7 +24,7 @@ const Login = () => {
     >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
       <form onSubmit={handleLogin} className="relative z-10 bg-white/95 backdrop-blur-md rounded-xl shadow-custom hover:shadow-custom-hover p-8 w-full max-w-md space-y-6 animate-slide-up transition-all duration-300">
-        <h2 className="text-3xl font-bold text-primary-dark text-center mb-8">Welcome to Countries App</h2>
+        <h2 className="text-3xl font-bold text-primary-dark text-center mb-8">Welcome to Countries Explorer App</h2>
         <input
           type="text"
           placeholder="Enter your name"
