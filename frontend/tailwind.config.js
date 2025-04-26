@@ -20,8 +20,10 @@ export default {
         'custom-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       },
       animation: {
+        'spin-slow': 'spin 20s linear infinite',
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
+        'bounce': 'bounce 1s infinite',
       },
       keyframes: {
         fadeIn: {
