@@ -19,7 +19,7 @@ const Login = () => {
     <div 
       className="min-h-screen p-6 flex items-center justify-center bg-cover bg-center bg-no-repeat animate-fade-in"
       style={{
-        backgroundImage: `url('https://images.pexels.com/photos/7235907/pexels-photo-7235907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`
+        backgroundImage: `url('100+ Sunset Aesthetic Wallpapers and Backgrounds (Free, High-Res).jpeg')`
       }}
     >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
