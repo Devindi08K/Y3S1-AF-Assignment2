@@ -14,6 +14,9 @@ export default {
         beige: '#F8F2DE',
         'primary-light': '#FF5757',
         'primary-hover': '#C83030',
+        darkerBeige: '#E0D7BA',
+        lightBrown: '#C4B7A6',
+
       },
       boxShadow: {
         'custom': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
@@ -24,6 +27,9 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce': 'bounce 1s infinite',
+        'float': 'float 4s ease-in-out infinite', 
+        'float-delay': 'float 4s ease-in-out 2s infinite', 
+        'gradient': 'gradient 15s ease infinite',
       },
       keyframes: {
         fadeIn: {
@@ -34,6 +40,21 @@ export default {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        gradient: {
+          '0%, 100%': {
+            'background-position': '0% 50%',
+          },
+          '50%': {
+            'background-position': '100% 50%',
+          },
+        },
+      },
+      backgroundSize: {
+        'gradient-size': '400% 400%',
       }
     },
   },
