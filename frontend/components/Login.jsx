@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     if (username.trim()) {
       login(username);
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 
@@ -27,7 +27,7 @@ const Login = () => {
 
       {/* Login Form */}
       <div className="relative z-10 bg-white/95 backdrop-blur-md rounded-xl shadow-custom hover:shadow-custom-hover p-8 w-full max-w-md space-y-6 animate-slide-up transition-all duration-300">
-        {/* Icon Header */}
+        
         <div className="flex flex-col items-center mb-8">
           <FaGlobeAmericas className="text-6xl text-primary mb-4 animate-spin-slow" />
           <h2 className="text-3xl font-bold text-primary-dark text-center">
@@ -61,7 +61,7 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Features Preview */}
+       
         <div className="mt-8 pt-6 border-t border-gray-200">
           <p className="text-gray-600 text-sm text-center mb-4">With Countries Explorer you can:</p>
           <div className="grid grid-cols-2 gap-4 text-center text-sm">

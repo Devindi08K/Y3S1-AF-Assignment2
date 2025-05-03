@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CountryInfo from './CountryInfo';
 import SearchBar from './SearchBar';
 import RegionFilter from './RegionFilter';
@@ -11,6 +12,7 @@ import {
 
 const CountryList = () => {
   const { user, logout, favorites } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -37,6 +39,11 @@ const CountryList = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/'); 
   };
 
   useEffect(() => {
@@ -78,7 +85,7 @@ const CountryList = () => {
               {showFavorites ? 'Show All Countries' : 'Show Favorites'}
             </button>
             <button 
-              onClick={logout} 
+              onClick={handleLogout}
               className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 transform hover:scale-105"
             >
               Logout
