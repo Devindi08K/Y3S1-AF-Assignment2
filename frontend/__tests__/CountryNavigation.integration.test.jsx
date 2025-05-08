@@ -53,6 +53,7 @@ describe('Country Navigation Integration', () => {
         <AuthContext.Provider value={mockAuthContext}>
           <Routes>
             <Route path="/" element={<CountryList />} />
+            <Route path="/dashboard" element={<CountryList />} />
             <Route path="/country/:code" element={<CountryDetails />} />
           </Routes>
         </AuthContext.Provider>
