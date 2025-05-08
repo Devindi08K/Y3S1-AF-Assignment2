@@ -24,7 +24,7 @@ const CountryDetails = () => {
     <div className="min-h-screen bg-beige px-4 sm:px-6 py-8">
       <div className="max-w-6xl mx-auto">
         <Link 
-          to="/" 
+          to="/dashboard" 
           className="inline-flex items-center px-4 py-2 bg-primary text-cream rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg"
         >
           <span className="mr-2">&larr;</span> Back to Home

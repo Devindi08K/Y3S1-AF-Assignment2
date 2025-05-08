@@ -26,18 +26,18 @@ describe('Login Component', () => {
   test('renders login form', () => {
     renderLogin();
     expect(screen.getByPlaceholderText('Enter your name')).toBeInTheDocument();
-    expect(screen.getByText('Get Started')).toBeInTheDocument();
+    expect(screen.getByText('Start Exploring')).toBeInTheDocument();
   });
 
   test('handles login submission', () => {
     renderLogin();
     const input = screen.getByPlaceholderText('Enter your name');
-    const button = screen.getByText('Get Started');
+    const button = screen.getByText('Start Exploring');
 
     fireEvent.change(input, { target: { value: 'Test User' } });
     fireEvent.click(button);
 
     expect(mockLogin).toHaveBeenCalledWith('Test User');
-    expect(mockNavigate).toHaveBeenCalledWith('/');
+    expect(mockNavigate).toHaveBeenCalledWith('/dashboard');
   });
 });
